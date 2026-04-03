@@ -161,7 +161,7 @@ export default function Home() {
             <p className="max-w-2xl text-lg leading-8 text-film-400 font-medium">
               A minimal, film-first platform for serious cinephiles. No fluff. Just movies, community, and honest conversations.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row" role="search">
+            <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row items-stretch" role="search">
               <label className="sr-only" htmlFor="movie-search">
                 Search movies
               </label>
@@ -171,9 +171,9 @@ export default function Home() {
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder="Search movies, genres, or titles..."
-                className="w-full rounded-lg border border-film-700 bg-film-800 px-5 py-4 text-sm text-white placeholder:text-film-500 outline-none transition focus:border-green-600/60 focus:ring-1 focus:ring-green-600/30 font-medium"
+                className="w-full rounded-lg border border-film-700 bg-film-800 px-4 sm:px-5 py-3 sm:py-4 text-sm text-white placeholder:text-film-500 outline-none transition focus:border-green-600/60 focus:ring-1 focus:ring-green-600/30 font-medium"
               />
-              <div className="flex items-center rounded-lg border border-film-700 bg-film-800 px-6 py-4 text-sm font-semibold text-film-400 sm:min-w-48 sm:justify-center">
+              <div className="flex items-center rounded-lg border border-film-700 bg-film-800 px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-film-400 sm:min-w-48 sm:justify-center whitespace-nowrap">
                 {searchLoading ? 'Searching...' : 'Live search'}
               </div>
             </div>
