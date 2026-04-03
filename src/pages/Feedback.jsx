@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 // Initialize EmailJS - You need to sign up at emailjs.com and get your public key
 // Replace 'YOUR_PUBLIC_KEY' with your actual public key from emailjs.com
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_PUBLIC_KEY = 'CG-7uacy-TiUsyUZH';
 const EMAILJS_SERVICE_ID = 'service_filmatic';
 const EMAILJS_TEMPLATE_ID = 'template_filmatic_feedback';
 
