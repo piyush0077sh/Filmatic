@@ -3,6 +3,10 @@
     {
       "source": "/tmdb-proxy/:path*",
       "destination": "https://api.themoviedb.org/3/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
