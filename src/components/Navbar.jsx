@@ -22,18 +22,18 @@ export default function Navbar() {
         </Link>
 
         <nav className="flex items-center gap-3 text-sm text-slate-300">
-          <a
-            href="#trending"
+          <Link
+            to="/#trending"
             className="rounded-full border border-white/10 px-4 py-2 transition hover:border-film-400/50 hover:text-white"
           >
             Trending
-          </a>
-          <a
-            href="#discover"
+          </Link>
+          <Link
+            to="/#discover"
             className="rounded-full border border-white/10 px-4 py-2 transition hover:border-film-400/50 hover:text-white"
           >
             Discover
-          </a>
+          </Link>
           {firebaseReady ? (
             <>
               <Link
