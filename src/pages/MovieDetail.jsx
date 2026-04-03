@@ -176,8 +176,8 @@ export default function MovieDetail() {
           </Link>
 
           {loading ? (
-            <div className="mt-8 grid gap-8 lg:grid-cols-[320px_1fr]">
-              <div className="h-[480px] animate-pulse rounded-3xl border border-white/10 bg-white/5" />
+            <div className="mt-8 grid gap-8 sm:grid-cols-[240px_1fr] lg:grid-cols-[320px_1fr]">
+              <div className="h-[280px] sm:h-[480px] animate-pulse rounded-3xl border border-white/10 bg-white/5" />
               <div className="space-y-4">
                 <div className="h-10 w-2/3 animate-pulse rounded-2xl bg-white/5" />
                 <div className="h-5 w-1/3 animate-pulse rounded-2xl bg-white/5" />
@@ -189,12 +189,12 @@ export default function MovieDetail() {
               {error}
             </div>
           ) : movie ? (
-            <div className="mt-8 grid gap-8 lg:grid-cols-[320px_1fr]">
+            <div className="mt-8 grid gap-8 sm:grid-cols-[240px_1fr] lg:grid-cols-[320px_1fr]">
               <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl shadow-black/25">
                 {posterUrl ? (
                   <img src={posterUrl} alt={movie.title} className="h-full w-full object-cover" />
                 ) : (
-                  <div className="flex h-[480px] items-center justify-center px-6 text-center text-sm text-slate-400">
+                  <div className="flex h-[280px] sm:h-[480px] items-center justify-center px-6 text-center text-sm text-slate-400">
                     Poster unavailable
                   </div>
                 )}
