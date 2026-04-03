@@ -159,7 +159,7 @@ export default function MovieDetail() {
   const backdropUrl = movie?.backdrop_path ? getImageUrl(movie.backdrop_path, 'w1280') : '';
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
+    <main className="min-h-screen bg-film-900 text-film-100">
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-white/5">
@@ -228,7 +228,7 @@ export default function MovieDetail() {
                   </div>
                 ) : null}
 
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/10">
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
                   <h2 className="text-lg font-semibold text-white">Overview</h2>
                   <p className="mt-3 text-sm leading-7 text-slate-300">
                     {movie.overview || 'No overview available for this title.'}

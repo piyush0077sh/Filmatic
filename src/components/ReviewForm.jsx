@@ -7,7 +7,7 @@ export default function ReviewForm({
   submitting,
 }) {
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/10">
+    <form onSubmit={onSubmit} className="rounded-lg border border-film-700 bg-film-800 p-5">
       <div className="space-y-4">
         <div>
           <h3 className="text-lg font-semibold text-white">Write a review</h3>
@@ -17,11 +17,11 @@ export default function ReviewForm({
         </div>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-slate-300">Rating</span>
+          <span className="mb-2 block text-sm text-film-400">Rating</span>
           <select
             value={rating}
             onChange={(event) => onRatingChange(event.target.value)}
-            className="w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm text-white outline-none transition focus:border-film-400/60"
+            className="w-full rounded-lg border border-film-700 bg-film-800 px-4 py-3 text-sm text-white outline-none transition focus:border-green-600/60"
           >
             <option value="">No rating</option>
             {Array.from({ length: 10 }).map((_, index) => {
@@ -37,13 +37,13 @@ export default function ReviewForm({
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-sm text-slate-300">Review</span>
+          <span className="mb-2 block text-sm text-film-400">Review</span>
           <textarea
             value={content}
             onChange={(event) => onContentChange(event.target.value)}
             rows={5}
-            placeholder="What worked, what didn’t, and why it matters..."
-            className="w-full rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-3 text-sm text-white outline-none transition focus:border-film-400/60"
+            placeholder="What worked, what didn't, and why it matters..."
+            className="w-full rounded-lg border border-film-700 bg-film-800 px-4 py-3 text-sm text-white outline-none transition focus:border-green-600/60"
             required
             minLength={10}
           />
@@ -52,7 +52,7 @@ export default function ReviewForm({
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-film-100 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex rounded-lg bg-green-600 hover:bg-green-500 px-5 py-3 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? 'Publishing...' : 'Post review'}
         </button>

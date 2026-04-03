@@ -22,7 +22,7 @@ export default function ReviewCard({ review, showMovieTitle = false }) {
   const authorLink = review.userId ? `/users/${review.userId}` : null;
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/10">
+    <article className="rounded-lg border border-film-700 bg-film-800 p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
           {authorLink ? (
@@ -37,7 +37,7 @@ export default function ReviewCard({ review, showMovieTitle = false }) {
           </p>
         </div>
         {rating ? (
-          <div className="rounded-full border border-film-400/30 bg-film-400/10 px-2.5 py-1 text-xs font-medium text-film-200">
+          <div className="rounded-full border border-green-600/40 bg-film-800/60 px-2.5 py-1 text-xs font-medium text-green-400">
             {rating}/10
           </div>
         ) : null}

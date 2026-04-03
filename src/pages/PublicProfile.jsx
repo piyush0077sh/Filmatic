@@ -170,7 +170,7 @@ export default function PublicProfile() {
       : { uid: userId, displayName: 'Filmatic user', email: '' });
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
+    <main className="min-h-screen bg-film-900 text-film-100">
       <Navbar />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">

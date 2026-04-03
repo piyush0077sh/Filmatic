@@ -32,18 +32,18 @@ export default function MovieCard({ movie }) {
       <div className="space-y-3 p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h3 className="line-clamp-2 text-base font-bold text-white group-hover:text-gold-300 transition">{movie.title}</h3>
-            <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-gold-400">
+            <h3 className="line-clamp-2 text-base font-bold text-white">{movie.title}</h3>
+            <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-film-500">
               {formatYear(movie.release_date)}
             </p>
           </div>
-          <div className="rounded-lg border border-gold-500/40 bg-gradient-to-br from-gold-500/20 to-gold-600/10 px-3 py-1.5 text-xs font-bold text-gold-300 shadow-lg shadow-gold-500/10 group-hover:border-gold-400 group-hover:from-gold-500/30 group-hover:to-gold-600/20 transition">
+          <div className="rounded-lg border border-green-600/40 bg-film-800/60 px-3 py-1.5 text-xs font-bold text-green-400">
             {Number(movie.vote_average || 0).toFixed(1)}
           </div>
         </div>
 
         {movie.overview ? (
-          <p className="line-clamp-2 text-sm leading-6 text-film-200 group-hover:text-film-100 transition">{movie.overview}</p>
+          <p className="line-clamp-2 text-sm leading-6 text-film-400 group-hover:text-film-300 transition">{movie.overview}</p>
         ) : null}
       </div>
     </article>
@@ -51,7 +51,7 @@ export default function MovieCard({ movie }) {
 
   if (movie.noLink) {
     return (
-      <div className="group overflow-hidden rounded-2xl border border-gold-500/20 bg-gradient-to-br from-film-800/80 to-film-900/80 shadow-premium transition hover:-translate-y-2 hover:border-gold-400/40 hover:shadow-premium-hover hover:from-film-800 hover:to-film-800/90">
+      <div className="group overflow-hidden rounded-lg border border-film-700 bg-film-800 transition hover:-translate-y-1">
         {content}
       </div>
     );
@@ -61,7 +61,7 @@ export default function MovieCard({ movie }) {
     <Link
       to={`/movie/${movie.id}`}
       state={{ movie }}
-      className="group overflow-hidden rounded-2xl border border-gold-500/20 bg-gradient-to-br from-film-800/80 to-film-900/80 shadow-premium transition hover:-translate-y-2 hover:border-gold-400/40 hover:shadow-premium-hover hover:from-film-800 hover:to-film-800/90"
+      className="group overflow-hidden rounded-lg border border-film-700 bg-film-800 transition hover:-translate-y-1"
     >
       {content}
     </Link>

@@ -15,9 +15,9 @@ export default function ProfileCard({ user, reviewCount }) {
   const displayName = user.displayName || user.email || 'Filmatic user';
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/15">
+    <article className="rounded-lg border border-film-700 bg-film-800 p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-        <div className="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-film-400 to-film-700 text-2xl font-semibold text-white shadow-lg shadow-film-500/20">
+        <div className="grid h-20 w-20 shrink-0 place-items-center rounded-lg bg-film-700 border border-green-600/40 text-2xl font-semibold text-green-400">
           {getInitials(displayName)}
         </div>
 
@@ -33,12 +33,12 @@ export default function ProfileCard({ user, reviewCount }) {
       </div>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-          <p className="text-xs uppercase tracking-[0.25em] text-slate-400">User ID</p>
+        <div className="rounded-lg border border-film-700 bg-film-700/50 p-4">
+          <p className="text-xs uppercase tracking-[0.25em] text-film-500">User ID</p>
           <p className="mt-2 break-all text-sm text-white">{user.uid}</p>
         </div>
-        <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-          <p className="text-xs uppercase tracking-[0.25em] text-slate-400">Account status</p>
+        <div className="rounded-lg border border-film-700 bg-film-700/50 p-4">
+          <p className="text-xs uppercase tracking-[0.25em] text-film-500">Account status</p>
           <p className="mt-2 text-sm text-white">Signed in</p>
         </div>
       </div>
