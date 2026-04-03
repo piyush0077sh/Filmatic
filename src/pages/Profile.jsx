@@ -79,7 +79,7 @@ export default function Profile() {
       <Navbar />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <ProfileCard user={user} reviewCount={reviews.length} />
+        <ProfileCard user={user} reviewCount={reviews.length} isOwnProfile={true} />
 
         <div className="mt-10 flex items-end justify-between gap-4">
           <div>

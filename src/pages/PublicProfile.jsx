@@ -182,7 +182,7 @@ export default function PublicProfile() {
           </div>
         ) : null}
 
-        <ProfileCard user={displayProfile} reviewCount={reviews.length} />
+        <ProfileCard user={displayProfile} reviewCount={reviews.length} isOwnProfile={isOwnProfile} />
 
         {!isOwnProfile && currentUser ? (
           <div className="mt-6 flex flex-wrap items-center gap-3">

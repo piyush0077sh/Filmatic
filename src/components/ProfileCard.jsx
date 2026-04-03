@@ -11,8 +11,8 @@ function getInitials(name) {
     .join('');
 }
 
-export default function ProfileCard({ user, reviewCount }) {
-  const displayName = user.displayName || user.email || 'Filmatic user';
+export default function ProfileCard({ user, reviewCount, isOwnProfile }) {
+  const displayName = user.displayName || (isOwnProfile ? user.email : 'Filmatic user') || 'Filmatic user';
 
   return (
     <article className="rounded-lg border border-film-700 bg-film-800 p-6">
@@ -25,23 +25,25 @@ export default function ProfileCard({ user, reviewCount }) {
           <p className="text-sm uppercase tracking-[0.35em] text-film-300">Profile</p>
           <h1 className="text-3xl font-semibold text-white sm:text-4xl">{displayName}</h1>
           <div className="flex flex-wrap gap-3 text-sm text-slate-300">
-            {user.email ? <span>{user.email}</span> : null}
-            {user.email ? <span>•</span> : null}
+            {isOwnProfile && user.email ? <span>{user.email}</span> : null}
+            {isOwnProfile && user.email ? <span>•</span> : null}
             <span>{reviewCount} reviews</span>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <div className="rounded-lg border border-film-700 bg-film-700/50 p-4">
-          <p className="text-xs uppercase tracking-[0.25em] text-film-500">User ID</p>
-          <p className="mt-2 break-all text-sm text-white">{user.uid}</p>
+      {isOwnProfile ? (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-lg border border-film-700 bg-film-700/50 p-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-film-500">User ID</p>
+            <p className="mt-2 break-all text-sm text-white">{user.uid}</p>
+          </div>
+          <div className="rounded-lg border border-film-700 bg-film-700/50 p-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-film-500">Account status</p>
+            <p className="mt-2 text-sm text-white">Signed in</p>
+          </div>
         </div>
-        <div className="rounded-lg border border-film-700 bg-film-700/50 p-4">
-          <p className="text-xs uppercase tracking-[0.25em] text-film-500">Account status</p>
-          <p className="mt-2 text-sm text-white">Signed in</p>
-        </div>
-      </div>
+      ) : null}
     </article>
   );
 }
