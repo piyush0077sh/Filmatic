@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import ProfileCard from '../components/ProfileCard';
 import ReviewCard from '../components/ReviewCard';
 import { useAuth } from '../context/AuthContext';
@@ -54,7 +55,8 @@ export default function Profile() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
+      <>
+        <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
         <Navbar />
         <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="rounded-lg border border-film-700 bg-film-800 p-6 text-sm text-film-300">
@@ -62,6 +64,8 @@ export default function Profile() {
           </div>
         </section>
       </main>
+      <Footer />
+      </>
     );
   }
 
@@ -70,7 +74,8 @@ export default function Profile() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
+    <>
+      <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
       <Navbar />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
@@ -117,5 +122,7 @@ export default function Profile() {
         )}
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

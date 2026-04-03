@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import ProfileCard from '../components/ProfileCard';
 import ReviewCard from '../components/ReviewCard';
 import { useAuth } from '../context/AuthContext';
@@ -170,7 +171,8 @@ export default function PublicProfile() {
       : { uid: userId, displayName: 'Filmatic user', email: '' });
 
   return (
-    <main className="min-h-screen bg-film-900 text-film-100">
+    <>
+      <main className="min-h-screen bg-film-900 text-film-100">
       <Navbar />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
@@ -243,5 +245,7 @@ export default function PublicProfile() {
         )}
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { useAuth } from '../context/AuthContext';
 import { isFirebaseConfigured } from '../firebase/firebase';
 
@@ -52,7 +53,8 @@ export default function Auth() {
     !firebaseReady ? (
       <Navigate to="/" replace />
     ) : (
-    <main className="min-h-screen bg-film-900 text-film-100">
+      <>
+        <main className="min-h-screen bg-film-900 text-film-100">
       <Navbar />
 
       <section className="mx-auto flex max-w-6xl items-center justify-center px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
@@ -169,6 +171,8 @@ export default function Auth() {
         </div>
       </section>
     </main>
+    <Footer />
+      </>
     )
   );
 }

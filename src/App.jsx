@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetail';
 import Profile from './pages/Profile';
 import PublicProfile from './pages/PublicProfile';
+import Feedback from './pages/Feedback';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/auth" element={<Auth />} />
       <Route path="/feed" element={<Feed />} />
+      <Route path="/feedback" element={<Feedback />} />
       <Route path="/users/:userId" element={<PublicProfile />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/movie/:movieId" element={<MovieDetail />} />

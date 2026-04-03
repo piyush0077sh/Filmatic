@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import MovieRow from '../components/MovieRow';
 import { getTrendingMovies, searchMovies } from '../services/tmdbApi';
 
@@ -142,7 +143,8 @@ export default function Home() {
   }, [searchQuery]);
 
   return (
-    <main className="min-h-screen bg-film-900 text-film-100">
+    <>
+      <main className="min-h-screen bg-film-900 text-film-100">
       <Navbar />
 
       <section className="relative border-b border-film-800">
@@ -224,5 +226,7 @@ export default function Home() {
         )}
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

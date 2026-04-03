@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import ReviewCard from '../components/ReviewCard';
 import ReviewForm from '../components/ReviewForm';
 import { useAuth } from '../context/AuthContext';
@@ -159,7 +160,8 @@ export default function MovieDetail() {
   const backdropUrl = movie?.backdrop_path ? getImageUrl(movie.backdrop_path, 'w1280') : '';
 
   return (
-    <main className="min-h-screen bg-film-900 text-film-100">
+    <>
+      <main className="min-h-screen bg-film-900 text-film-100">
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-white/5">
@@ -294,5 +296,7 @@ export default function MovieDetail() {
         </section>
       ) : null}
     </main>
+    <Footer />
+    </>
   );
 }
