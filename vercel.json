@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/tmdb-proxy/:path*",
+      "destination": "https://api.themoviedb.org/3/:path*"
+    }
+  ]
+}

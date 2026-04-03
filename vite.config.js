@@ -3,6 +3,16 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/tmdb-proxy': {
+        target: 'https://api.themoviedb.org',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/tmdb-proxy/, '/3'),
+      },
+    },
+  },
   build: {
     rollupOptions: {
       output: {

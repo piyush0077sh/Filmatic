@@ -38,6 +38,10 @@ const FALLBACK_MOVIES = [
   },
 ];
 
+function isTmdbConnectivityError(message) {
+  return /timed out|failed to fetch|500/i.test(message || '');
+}
+
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -68,7 +72,11 @@ export default function Home() {
         }
 
         setMovies(FALLBACK_MOVIES);
-        setError(requestError.message || 'TMDb is not responding right now, so showing a local preview instead.');
+        setError(
+          isTmdbConnectivityError(requestError.message)
+            ? 'TMDb is unreachable from this network right now, so showing a local preview instead.'
+            : requestError.message || 'TMDb is not responding right now, so showing a local preview instead.',
+        );
       } finally {
         if (active) {
           setLoading(false);
@@ -112,7 +120,11 @@ export default function Home() {
           return;
         }
 
-        setSearchError(requestError.message || 'Unable to search movies right now. Please try again.');
+        setSearchError(
+          isTmdbConnectivityError(requestError.message)
+            ? 'TMDb is unreachable from this network right now. Search is using the local app only.'
+            : requestError.message || 'Unable to search movies right now. Please try again.',
+        );
         setSearchResults([]);
       } finally {
         if (active) {

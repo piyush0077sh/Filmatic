@@ -1,21 +1,21 @@
-const TMDB_BASE_URL = import.meta.env.VITE_TMDB_BASE_URL || 'https://api.themoviedb.org/3';
+const TMDB_BASE_URL = '/tmdb-proxy';
 const TMDB_IMAGE_BASE_URL =
   import.meta.env.VITE_TMDB_IMAGE_BASE_URL || 'https://image.tmdb.org/t/p';
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const TMDB_REQUEST_TIMEOUT_MS = 12000;
+const TMDB_REQUEST_TIMEOUT_MS = 30000;
 
 function buildUrl(path, params = {}) {
   const normalizedPath = path.startsWith('/') ? path.slice(1) : path;
   const baseUrl = TMDB_BASE_URL.endsWith('/') ? TMDB_BASE_URL : `${TMDB_BASE_URL}/`;
-  const url = new URL(normalizedPath, baseUrl);
+  const query = new URLSearchParams();
 
   Object.entries(params).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== '') {
-      url.searchParams.set(key, value);
+      query.set(key, value);
     }
   });
 
-  return url.toString();
+  return `${baseUrl}${normalizedPath}${query.toString() ? `?${query.toString()}` : ''}`;
 }
 
 async function request(path, params = {}) {
@@ -41,6 +41,10 @@ async function request(path, params = {}) {
   } catch (requestError) {
     if (requestError.name === 'AbortError') {
       throw new Error('TMDb request timed out.');
+    }
+
+    if (String(requestError.message || '').includes('failed to fetch')) {
+      throw new Error('TMDb request failed to fetch.');
     }
 
     throw requestError;

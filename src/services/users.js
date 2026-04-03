@@ -1,4 +1,4 @@
-import { doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 
 function getUserDocRef(userId) {
@@ -14,16 +14,23 @@ export async function ensureUserProfile(user) {
     return;
   }
 
+  const userRef = getUserDocRef(user.uid);
+  const existingProfile = await getDoc(userRef);
+  const profileData = {
+    uid: user.uid,
+    email: user.email || '',
+    displayName: user.displayName || user.email || 'Filmatic user',
+    photoURL: user.photoURL || '',
+    updatedAt: serverTimestamp(),
+  };
+
+  if (!existingProfile.exists()) {
+    profileData.createdAt = serverTimestamp();
+  }
+
   await setDoc(
-    getUserDocRef(user.uid),
-    {
-      uid: user.uid,
-      email: user.email || '',
-      displayName: user.displayName || user.email || 'Filmatic user',
-      photoURL: user.photoURL || '',
-      updatedAt: serverTimestamp(),
-      createdAt: serverTimestamp(),
-    },
+    userRef,
+    profileData,
     { merge: true },
   );
 }
