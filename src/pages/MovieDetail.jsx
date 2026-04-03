@@ -159,7 +159,7 @@ export default function MovieDetail() {
   const backdropUrl = movie?.backdrop_path ? getImageUrl(movie.backdrop_path, 'w1280') : '';
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
       <Navbar />
 
       <section className="relative overflow-hidden border-b border-white/5">

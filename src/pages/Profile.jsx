@@ -54,10 +54,10 @@ export default function Profile() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-slate-950 text-slate-100">
+      <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
         <Navbar />
         <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-300">
+          <div className="rounded-3xl border border-gold-500/20 bg-gradient-to-br from-film-800/40 to-film-900/40 p-6 text-sm text-film-200">
             Checking your profile...
           </div>
         </section>
@@ -70,7 +70,7 @@ export default function Profile() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
       <Navbar />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">

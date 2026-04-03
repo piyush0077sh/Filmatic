@@ -52,7 +52,7 @@ export default function Auth() {
     !firebaseReady ? (
       <Navigate to="/" replace />
     ) : (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-gradient-to-b from-film-900 via-film-950 to-film-950 text-film-100">
       <Navbar />
 
       <section className="mx-auto flex max-w-6xl items-center justify-center px-4 py-14 sm:px-6 lg:px-8 lg:py-20">

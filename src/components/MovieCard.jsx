@@ -26,7 +26,7 @@ export default function MovieCard({ movie }) {
             Poster unavailable
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-film-950 via-film-950/20 to-transparent group-hover:via-film-950/10 transition duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-film-950/30 to-transparent group-hover:from-film-950/20 transition duration-500" />
       </div>
 
       <div className="space-y-3 p-5">
