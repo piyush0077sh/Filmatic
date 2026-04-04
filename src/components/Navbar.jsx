@@ -13,9 +13,11 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 transition hover:opacity-80 shrink-0">
-          <span className="grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-lg bg-film-800 border border-green-600/50 text-xs font-bold text-green-400">
-            FM
-          </span>
+          <img
+            src="/logo.png"
+            alt="Filmatic"
+            className="h-10 w-10 rounded-xl bg-film-950/60 object-contain p-1 sm:h-12 sm:w-12"
+          />
           <div className="hidden sm:block">
             <p className="text-base sm:text-lg font-bold tracking-tight text-white">Filmatic</p>
             <p className="text-xs font-medium uppercase tracking-[0.35em] text-film-400">

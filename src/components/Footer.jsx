@@ -7,7 +7,14 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="text-lg font-bold text-white">Filmatic</p>
+            <div className="flex items-center gap-3">
+              <img
+                src="/logo.png"
+                alt="Filmatic"
+                className="h-11 w-11 rounded-xl bg-film-900/70 object-contain p-1"
+              />
+              <p className="text-lg font-bold text-white">Filmatic</p>
+            </div>
             <p className="mt-2 text-sm text-film-400">
               Made with passion for cinema
             </p>

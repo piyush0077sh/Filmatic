@@ -60,6 +60,11 @@ export default function Auth() {
       <section className="mx-auto flex max-w-6xl items-center justify-center px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="w-full max-w-xl rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/25 backdrop-blur sm:p-8">
           <div className="space-y-3 text-center">
+            <img
+              src="/logo.png"
+              alt="Filmatic"
+              className="mx-auto h-14 w-14 rounded-2xl bg-film-950/70 object-contain p-1.5"
+            />
             <p className="text-sm uppercase tracking-[0.35em] text-film-300">Account</p>
             <h1 className="text-3xl font-semibold text-white sm:text-4xl">
               {mode === 'signup' ? 'Create your Filmatic account' : 'Sign in to Filmatic'}

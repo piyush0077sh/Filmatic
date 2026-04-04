@@ -24,6 +24,11 @@ export default function App() {
         element={
           <main className="min-h-screen bg-slate-950 px-6 py-16 text-slate-100">
             <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-10 text-center backdrop-blur">
+              <img
+                src="/logo.png"
+                alt="Filmatic"
+                className="mx-auto h-14 w-14 rounded-2xl bg-slate-900/70 object-contain p-1.5"
+              />
               <p className="text-sm uppercase tracking-[0.35em] text-film-300">
                 Filmatic
               </p>
