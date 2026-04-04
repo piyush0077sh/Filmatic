@@ -22,12 +22,12 @@ export async function ensureUserProfile(user) {
     email: user.email || '',
     displayName: user.displayName || user.email || 'Filmatic user',
     photoURL: user.photoURL || '',
-    favoriteMovies: [],
     updatedAt: serverTimestamp(),
   };
 
   if (!existingProfile.exists()) {
     profileData.createdAt = serverTimestamp();
+    profileData.favoriteMovies = [];
   }
 
   await setDoc(
