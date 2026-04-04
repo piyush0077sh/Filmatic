@@ -11,9 +11,20 @@ function getInitials(name) {
     .join('');
 }
 
-function StatAnchor({ href, value, label }) {
+function StatAnchor({ href, value, label, onClick }) {
   const className =
     'group rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-green-500/30 hover:bg-white/10';
+
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={className}>
+        <div className="text-2xl font-semibold text-white">{value}</div>
+        <div className="mt-1 text-[0.7rem] uppercase tracking-[0.3em] text-film-400 group-hover:text-green-300">
+          {label}
+        </div>
+      </button>
+    );
+  }
 
   if (!href) {
     return (
@@ -50,6 +61,10 @@ export default function ProfileCard({
   isOwnProfile,
   onPrimaryAction,
   primaryActionLabel = 'Edit profile',
+  onReviewsClick,
+  onActivityClick,
+  onFollowersClick,
+  onFollowingClick,
 }) {
   const displayName = user.displayName || (isOwnProfile ? user.email : 'Filmatic user') || 'Filmatic user';
   const photoUrl = user.photoURL || user.avatarUrl || '';
@@ -108,10 +123,10 @@ export default function ProfileCard({
           ) : null}
 
           <div className="grid gap-3 sm:grid-cols-3 lg:min-w-[360px]">
-            <StatAnchor href="#reviews" value={filmsValue} label="Films" />
-            <StatAnchor href="#following" value={followingCount} label="Following" />
-            <StatAnchor href="#followers" value={followerCount} label="Followers" />
-            <StatAnchor href="#activity" value={thisYearCount} label="This year" />
+            <StatAnchor href="#reviews" value={filmsValue} label="Films" onClick={onReviewsClick} />
+            <StatAnchor href="#following" value={followingCount} label="Following" onClick={onFollowingClick} />
+            <StatAnchor href="#followers" value={followerCount} label="Followers" onClick={onFollowersClick} />
+            <StatAnchor href="#activity" value={thisYearCount} label="This year" onClick={onActivityClick} />
             <StatAnchor value={listCount} label="Lists" />
           </div>
         </div>

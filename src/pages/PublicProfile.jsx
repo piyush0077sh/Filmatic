@@ -59,6 +59,16 @@ export default function PublicProfile() {
     { id: 'network', label: 'Network' },
   ];
 
+  function jumpToTabSection(tabId, elementId) {
+    setActiveTab(tabId);
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
   useEffect(() => {
     let active = true;
 
@@ -357,14 +367,18 @@ export default function PublicProfile() {
           followerCount={followers.length}
           followingCount={following.length}
           isOwnProfile={isOwnProfile}
+          onFollowersClick={() => jumpToTabSection('network', 'followers')}
+          onFollowingClick={() => jumpToTabSection('network', 'following')}
+          onActivityClick={() => jumpToTabSection('activity', 'activity')}
+          onReviewsClick={() => jumpToTabSection('reviews', 'reviews')}
         />
 
         <div className="mt-6 grid gap-4 xl:grid-cols-[1fr_auto] xl:items-center">
           <ProfileActions
             isOwnProfile={false}
             onEditProfile={null}
-            onJumpFollowers={() => document.getElementById('followers')?.scrollIntoView({ behavior: 'smooth' })}
-            onJumpFollowing={() => document.getElementById('following')?.scrollIntoView({ behavior: 'smooth' })}
+            onJumpFollowers={() => jumpToTabSection('network', 'followers')}
+            onJumpFollowing={() => jumpToTabSection('network', 'following')}
           />
           <div className="flex flex-wrap items-center gap-3 xl:justify-end">
             {!isOwnProfile && currentUser ? (
