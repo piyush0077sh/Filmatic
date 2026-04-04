@@ -71,3 +71,31 @@ export function subscribeToFollowingIds(followerId, onChange, onError) {
     },
   );
 }
+
+function subscribeToFollowEdges(fieldName, fieldValue, onChange, onError) {
+  if (!db) {
+    throw new Error('Firestore is not configured yet.');
+  }
+
+  const followsQuery = query(collection(db, 'follows'), where(fieldName, '==', String(fieldValue)));
+
+  return onSnapshot(
+    followsQuery,
+    (snapshot) => {
+      onChange(snapshot.docs.map((document) => ({ id: document.id, ...document.data() })));
+    },
+    (snapshotError) => {
+      if (onError) {
+        onError(snapshotError);
+      }
+    },
+  );
+}
+
+export function subscribeToFollowers(followingId, onChange, onError) {
+  return subscribeToFollowEdges('followingId', followingId, onChange, onError);
+}
+
+export function subscribeToFollowing(followerId, onChange, onError) {
+  return subscribeToFollowEdges('followerId', followerId, onChange, onError);
+}

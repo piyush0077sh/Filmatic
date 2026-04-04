@@ -33,7 +33,7 @@ export default function Navbar() {
             Trending
           </Link>
           <Link
-            to="/#discover"
+            to="/discover"
             className="rounded-lg px-3 py-2 transition border border-transparent hover:border-green-600/30 hover:text-green-400"
           >
             Discover
@@ -112,7 +112,7 @@ export default function Navbar() {
               Trending
             </Link>
             <Link
-              to="/#discover"
+              to="/discover"
               onClick={() => setMobileMenuOpen(false)}
               className="rounded-lg px-3 py-2 transition border border-transparent hover:border-green-600/30 hover:text-green-400"
             >

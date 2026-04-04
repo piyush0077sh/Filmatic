@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MovieRow from '../components/MovieRow';
@@ -44,6 +45,7 @@ function isTmdbConnectivityError(message) {
 }
 
 export default function Home() {
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -91,6 +93,25 @@ export default function Home() {
       active = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!location.hash) {
+      return undefined;
+    }
+
+    const targetId = location.hash.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+
+    if (!targetElement) {
+      return undefined;
+    }
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [location.hash]);
 
   useEffect(() => {
     let active = true;

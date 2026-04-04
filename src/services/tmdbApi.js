@@ -65,8 +65,25 @@ export function getTrendingMovies(timeWindow = 'week') {
   return request(`/trending/movie/${timeWindow}`);
 }
 
-export function searchMovies(query) {
-  return request('/search/movie', { query });
+export function searchMovies(query, page = 1) {
+  return request('/search/movie', { query, page });
+}
+
+export function discoverMovies(params = {}, page = 1) {
+  return request('/discover/movie', {
+    page,
+    include_adult: params.includeAdult ? 'true' : 'false',
+    sort_by: params.sortBy || 'popularity.desc',
+    with_genres: params.genreIds?.length ? params.genreIds.join(',') : undefined,
+    primary_release_year: params.year || undefined,
+    'primary_release_date.gte': params.yearFrom || undefined,
+    'primary_release_date.lte': params.yearTo || undefined,
+    'vote_average.gte': params.minVoteAverage || undefined,
+  });
+}
+
+export function getGenres() {
+  return request('/genre/movie/list');
 }
 
 export function getMovieDetails(movieId) {

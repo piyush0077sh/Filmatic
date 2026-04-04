@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Auth from './pages/Auth';
+import Discover from './pages/Discover';
 import Feed from './pages/Feed';
 import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetail';
@@ -12,6 +13,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/auth" element={<Auth />} />
+      <Route path="/discover" element={<Discover />} />
       <Route path="/feed" element={<Feed />} />
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/users/:userId" element={<PublicProfile />} />
